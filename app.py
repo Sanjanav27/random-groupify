@@ -21,27 +21,35 @@ def group2(nsize):
         a=f"name-{i}"
 
         name_arr.append(request.form[a])
+    clone_arr=[]
+    for name in name_arr:
+        clone_arr.append(name)
     grpsize=request.form["grp-size"]
 
     length=len(name_arr)
-    rem=int(length/int(grpsize))
+    div=int(length/int(grpsize))
+    rem=int(length%int(grpsize))
     name_pair=[]
-
-
     while name_arr!=[]:
         try:
-            for i in range(0,rem):
+            for i in range(0,div):
                 dummy=[]
                 for j in range(0,int(grpsize)):
                     dummy.append(random.choice(name_arr))
                     s=str(dummy[j])
                     name_arr.remove(s)
                 name_pair.append(dummy) 
-        except ValueError:
-            a=random.choices(name_arr,k=1)
-            print(a)
-            for i in a:
-                name_arr.remove(i) 
+        except:
+            t=[]
+            cur=[]
+            for pair in name_pair:
+                for name in pair:
+                    cur.append(name)
+            for ori in clone_arr:
+                if(ori not in cur):
+                    t.append(ori)
+            name_pair.append(t)
+
         
     return render_template("group.html",name_pair=name_pair,grpsize=int(grpsize))
 
