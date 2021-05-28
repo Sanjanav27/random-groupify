@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Groupify</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<style>
+  .submit-btn {
+    background: #50bf9f;
+    border-color: #50bf9f;
+    color: #fff;
+    font-weight: 600;
+    font-size: 18px;
+
+}
+.submit-btn:hover {
+  background-color: #055791; /* Green */
+  color: white;
+}
+</style>
+</head>
+<body style="background-color: #f4f5f7">
+
+    <div style="background-color: #fff;margin-bottom: 10px;">
+      <img style="width: 60px; margin-left: 48%; background-color: #fff;" src="http://d1cb7w4cvia6lb.cloudfront.net/featurepreneur/recording/logo.png" alt="">
+  
+  
+  </div>
+  <center>
+  <form action="/group2/{{nsize}}" method="post">
+   
+    {% for nsize in range(nsize) %}
+    <input type="text" class="form-control" name="name-{{nsize}}" style="margin: 5px;width:300px">
+    {% endfor %}
+      
+    Group By<input type="number" class="form-control" name="grp-size" style="margin: 5px;width:300px">
+
+    <button type="submit" class="btn btn-info submit-btn" style="margin: 10px;width: fit-content;color: #fff;font-family: Verdana, Geneva, Tahoma, sans-serif;font-weight: 100;font-style: oblique;font-size: x-large; border-radius: 10px;">Submit</button>
+    <!-- <form action="/group3" method="POST">
+    <button type="submit" class="btn btn-info submit-btn btn btn-primary btn-block" style="margin: 10px;width: fit-content;color: #fff;font-family: Verdana, Geneva, Tahoma, sans-serif;font-weight: 100;font-style: oblique;font-size: x-large; border-radius: 10px;">Group by 3</button>
+  </form> -->
+</form>
+
+</center>
+
+    
+</body>
+</html>
